@@ -22,5 +22,15 @@ module.exports = function (app) {
     require('./login')
   );
 
+  router.all(
+    '/v1/*',
+    passport.authenticateBearer
+  );
+
+  router.use(
+    '/v1',
+    require('./v1')
+  );
+
   app.use(router);
 }

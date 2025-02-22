@@ -25,9 +25,9 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true,
   });
 
-  // Users.associate = (models) => {
-  //   // Define associations here if necessary
-  // };
+  Users.associate = (models) => {
+    Users.hasMany(models.Attendances, { foreignKey: 'userId' });
+  };
 
   return Users;
 };
