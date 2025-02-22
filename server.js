@@ -1,15 +1,11 @@
+require('dotenv').config();
 const Path = require('path');
 global.__base = Path.join(__dirname, '/');
-require('dotenv').config();
 const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
 const db = require('./app/models');
 
 const app = express();
-
-app.use(helmet());
-app.use(cors());
+require('./config/express')(app);
 
 db.sequelize.authenticate().then(() => {
   console.log('Connection has been established successfully.');
