@@ -21,7 +21,7 @@ module.exports = {
         },
         clockIn: {
           type: Sequelize.DATE,
-          allowNull: false,
+          allowNull: true,
         },
         clockOut: {
           type: Sequelize.DATE,
@@ -44,6 +44,7 @@ module.exports = {
       });
       await queryInterface.addIndex('Attendances', ['clockIn'], { transaction });
       await queryInterface.addIndex('Attendances', ['clockOut'], { transaction });
+      await queryInterface.addIndex('Attendances', ['createdAt'], { transaction });
 
       await transaction.commit();
     } catch (error) {

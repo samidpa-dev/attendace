@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     clockIn: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     clockOut: {
       type: DataTypes.DATE,
