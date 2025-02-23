@@ -22,6 +22,12 @@ module.exports = function (app) {
     require('./login')
   );
 
+  router.post(
+    '/v1/attendance/reports',
+    passport.authenticateBasic,
+    require('./v1/attendance/report')
+  );
+
   router.all(
     '/v1/*',
     passport.authenticateBearer
