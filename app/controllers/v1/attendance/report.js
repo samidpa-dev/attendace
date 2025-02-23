@@ -72,8 +72,6 @@ module.exports = async (req, res, next) => {
         }
       });
     }
-
-    console.log(conditions);
     
 
     const attend = await elasticSearch.findAndCountAll({
